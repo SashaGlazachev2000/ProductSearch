@@ -33,8 +33,8 @@ class ViewController: UIViewController, ProductFactoryDelegat {
         factoryProduct?.searcProduct(code: code)
     }
     
-    func show(){
-        
+    func show(product: Product){
+        imageView.image = UIImage(named: product.image)
     }
 }
 

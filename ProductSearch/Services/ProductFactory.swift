@@ -91,11 +91,10 @@ class ProductFactory: ProductFactoryProtocol {
     ]
     
     func searcProduct(code: Int) {
-        if listProduct.contains(where: {$0.code == code}) {
-           print(code)
-        } else {
-           print("Noooo code")
-            
+        listProduct.forEach { product in
+            if product.code == code {
+                viewController.show(product: product)
+            }
         }
     }
 }

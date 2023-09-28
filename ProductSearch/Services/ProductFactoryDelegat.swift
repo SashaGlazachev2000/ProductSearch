@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ProductFactoryDelegat {
-    func show()
+    func show(product: Product)
 }
