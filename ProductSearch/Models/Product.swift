@@ -7,6 +7,6 @@ struct Product {
     let name: String
     let amount: Int
     let price: Float
-    let notSeasonal: Bool
+    let isSeasonal: Bool
     let quality: [String]
 }
