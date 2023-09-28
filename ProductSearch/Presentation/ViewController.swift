@@ -8,13 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textViewInfo: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //  Hello world
-        // Do any additional setup after loading the view.
+ 
     }
 
-
+    @IBAction func searchButtonClicked(_ sender: Any) {
+        guard let text = textField.text else {return}
+        if text == "" {return}
+        print(text)
+       
+    }
 }
 

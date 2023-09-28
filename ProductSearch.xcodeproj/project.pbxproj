@@ -16,6 +16,9 @@
 		B31AB2F52AC44C5B00A473E8 /* ProductSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB2F42AC44C5B00A473E8 /* ProductSearchTests.swift */; };
 		B31AB2FF2AC44C5B00A473E8 /* ProductSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB2FE2AC44C5B00A473E8 /* ProductSearchUITests.swift */; };
 		B31AB3012AC44C5B00A473E8 /* ProductSearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3002AC44C5B00A473E8 /* ProductSearchUITestsLaunchTests.swift */; };
+		B31AB3112AC45D9700A473E8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3102AC45D9700A473E8 /* UIColor+Extensions.swift */; };
+		B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3142AC59E8600A473E8 /* ProductFactory.swift */; };
+		B31AB3182AC59EE800A473E8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3172AC59EE800A473E8 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		B31AB2FA2AC44C5B00A473E8 /* ProductSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31AB2FE2AC44C5B00A473E8 /* ProductSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchUITests.swift; sourceTree = "<group>"; };
 		B31AB3002AC44C5B00A473E8 /* ProductSearchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B31AB3102AC45D9700A473E8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		B31AB3142AC59E8600A473E8 /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
+		B31AB3172AC59EE800A473E8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +105,11 @@
 		B31AB2DC2AC44C5A00A473E8 /* ProductSearch */ = {
 			isa = PBXGroup;
 			children = (
-				B31AB30E2AC4591300A473E8 /* Resources */,
+				B31AB3162AC59EBD00A473E8 /* Models */,
+				B31AB3122AC59E3E00A473E8 /* Services */,
 				B31AB30D2AC4562100A473E8 /* Presentation */,
+				B31AB30E2AC4591300A473E8 /* Resources */,
+				B31AB30F2AC45D6000A473E8 /* Helper */,
 				B31AB2DD2AC44C5A00A473E8 /* AppDelegate.swift */,
 				B31AB2DF2AC44C5A00A473E8 /* SceneDelegate.swift */,
 			);
@@ -141,6 +150,30 @@
 				B31AB2E62AC44C5B00A473E8 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B31AB30F2AC45D6000A473E8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B31AB3102AC45D9700A473E8 /* UIColor+Extensions.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B31AB3122AC59E3E00A473E8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B31AB3142AC59E8600A473E8 /* ProductFactory.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B31AB3162AC59EBD00A473E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B31AB3172AC59EE800A473E8 /* Product.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +309,10 @@
 			files = (
 				B31AB2E22AC44C5A00A473E8 /* ViewController.swift in Sources */,
 				B31AB2DE2AC44C5A00A473E8 /* AppDelegate.swift in Sources */,
+				B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */,
 				B31AB2E02AC44C5A00A473E8 /* SceneDelegate.swift in Sources */,
+				B31AB3112AC45D9700A473E8 /* UIColor+Extensions.swift in Sources */,
+				B31AB3182AC59EE800A473E8 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ProductSearch/Info.plist;
+				INFOPLIST_FILE = ProductSearch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -481,7 +517,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ProductSearch/Info.plist;
+				INFOPLIST_FILE = ProductSearch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
