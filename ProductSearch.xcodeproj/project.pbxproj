@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B31AB2DE2AC44C5A00A473E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB2DD2AC44C5A00A473E8 /* AppDelegate.swift */; };
 		B31AB2E02AC44C5A00A473E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB2DF2AC44C5A00A473E8 /* SceneDelegate.swift */; };
-		B31AB2E22AC44C5A00A473E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB2E12AC44C5A00A473E8 /* ViewController.swift */; };
+		B31AB2E22AC44C5A00A473E8 /* ProductSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB2E12AC44C5A00A473E8 /* ProductSearchViewController.swift */; };
 		B31AB2E52AC44C5A00A473E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31AB2E32AC44C5A00A473E8 /* Main.storyboard */; };
 		B31AB2E72AC44C5B00A473E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B31AB2E62AC44C5B00A473E8 /* Assets.xcassets */; };
 		B31AB2EA2AC44C5B00A473E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31AB2E82AC44C5B00A473E8 /* LaunchScreen.storyboard */; };
@@ -21,6 +21,9 @@
 		B31AB3182AC59EE800A473E8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3172AC59EE800A473E8 /* Product.swift */; };
 		B31AB31A2AC5B11D00A473E8 /* ProductFactoryDelegat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */; };
 		B31AB31C2AC5B28500A473E8 /* ProductFactoryPrototcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */; };
+		B31AB31E2AC5BE1E00A473E8 /* ProductSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */; };
+		B31AB3202AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */; };
+		B31AB3222AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +47,7 @@
 		B31AB2DA2AC44C5A00A473E8 /* ProductSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31AB2DD2AC44C5A00A473E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B31AB2DF2AC44C5A00A473E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B31AB2E12AC44C5A00A473E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B31AB2E12AC44C5A00A473E8 /* ProductSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewController.swift; sourceTree = "<group>"; };
 		B31AB2E42AC44C5A00A473E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B31AB2E62AC44C5B00A473E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B31AB2E92AC44C5B00A473E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +62,9 @@
 		B31AB3172AC59EE800A473E8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactoryDelegat.swift; sourceTree = "<group>"; };
 		B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactoryPrototcol.swift; sourceTree = "<group>"; };
+		B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchPresenter.swift; sourceTree = "<group>"; };
+		B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewControllerProtocol.swift; sourceTree = "<group>"; };
+		B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchPresenterDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				B31AB2E32AC44C5A00A473E8 /* Main.storyboard */,
-				B31AB2E12AC44C5A00A473E8 /* ViewController.swift */,
+				B31AB2E12AC44C5A00A473E8 /* ProductSearchViewController.swift */,
+				B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -170,6 +177,8 @@
 				B31AB3142AC59E8600A473E8 /* ProductFactory.swift */,
 				B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */,
 				B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */,
+				B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */,
+				B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -313,7 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B31AB2E22AC44C5A00A473E8 /* ViewController.swift in Sources */,
+				B31AB3202AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift in Sources */,
+				B31AB2E22AC44C5A00A473E8 /* ProductSearchViewController.swift in Sources */,
+				B31AB3222AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift in Sources */,
+				B31AB31E2AC5BE1E00A473E8 /* ProductSearchPresenter.swift in Sources */,
 				B31AB2DE2AC44C5A00A473E8 /* AppDelegate.swift in Sources */,
 				B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */,
 				B31AB2E02AC44C5A00A473E8 /* SceneDelegate.swift in Sources */,

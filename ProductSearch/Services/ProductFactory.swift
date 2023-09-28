@@ -1,11 +1,6 @@
 import Foundation
 
 class ProductFactory: ProductFactoryProtocol {
-    private var viewController: ProductFactoryDelegat
-    
-    init(viewController: ProductFactoryDelegat) {
-        self.viewController = viewController
-    }
     
     let listProduct: [Product] = [
         Product(image: "The Godfather",
@@ -71,7 +66,7 @@ class ProductFactory: ProductFactoryProtocol {
                 amount: 3,
                 price: 550,
                 isSeasonal: true,
-                quality: []),
+                quality: ["Xl", "2Xl", "3Xl"]),
         Product(image: "Tesla",
                 code: 13222,
                 barcode: 13222,
@@ -79,7 +74,7 @@ class ProductFactory: ProductFactoryProtocol {
                 amount: 1,
                 price: 1400,
                 isSeasonal: true,
-                quality: []),
+                quality: ["34"]),
         Product(image: "Vivarium",
                 code: 19999,
                 barcode: 19999,
@@ -90,11 +85,13 @@ class ProductFactory: ProductFactoryProtocol {
                 quality: []),
     ]
     
-    func searcProduct(code: Int) {
+    func searcProduct(code: Int) -> Product? {
+        var result: Product?
         listProduct.forEach { product in
             if product.code == code {
-                viewController.show(product: product)
+                result = product
             }
         }
+        return result
     }
 }
