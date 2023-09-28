@@ -1,6 +1,6 @@
 import Foundation
 
-class ProductFactory {
+class ProductFactory: ProductFactoryProtocol {
     let listProduct: [Product] = [
         Product(image: "The Godfather",
                 code: 11122,
@@ -89,6 +89,7 @@ class ProductFactory {
            print(code)
         } else {
            print("Noooo code")
+            
         }
     }
 }

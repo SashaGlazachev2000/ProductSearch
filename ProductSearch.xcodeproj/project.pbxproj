@@ -19,6 +19,8 @@
 		B31AB3112AC45D9700A473E8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3102AC45D9700A473E8 /* UIColor+Extensions.swift */; };
 		B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3142AC59E8600A473E8 /* ProductFactory.swift */; };
 		B31AB3182AC59EE800A473E8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3172AC59EE800A473E8 /* Product.swift */; };
+		B31AB31A2AC5B11D00A473E8 /* ProductFactoryDelegat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */; };
+		B31AB31C2AC5B28500A473E8 /* ProductFactoryPrototcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		B31AB3102AC45D9700A473E8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B31AB3142AC59E8600A473E8 /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		B31AB3172AC59EE800A473E8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactoryDelegat.swift; sourceTree = "<group>"; };
+		B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactoryPrototcol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				B31AB3142AC59E8600A473E8 /* ProductFactory.swift */,
+				B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */,
+				B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -311,8 +317,10 @@
 				B31AB2DE2AC44C5A00A473E8 /* AppDelegate.swift in Sources */,
 				B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */,
 				B31AB2E02AC44C5A00A473E8 /* SceneDelegate.swift in Sources */,
+				B31AB31A2AC5B11D00A473E8 /* ProductFactoryDelegat.swift in Sources */,
 				B31AB3112AC45D9700A473E8 /* UIColor+Extensions.swift in Sources */,
 				B31AB3182AC59EE800A473E8 /* Product.swift in Sources */,
+				B31AB31C2AC5B28500A473E8 /* ProductFactoryPrototcol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

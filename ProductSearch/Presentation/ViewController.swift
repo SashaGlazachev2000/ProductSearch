@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ProductFactoryDelegat {
     
     private var factoryProduct: ProductFactory?
     
@@ -21,11 +21,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func searchButtonClicked(_ sender: Any) {
+       filterTextField()
+    }
+    
+    private func filterTextField() {
         guard let text = textField.text else {return}
         if text == "" {return}
         let code = Int(text)
         guard let code = code else { return }
-        factoryProduct?.searcProduct(code: code)       
+        factoryProduct?.searcProduct(code: code)
+    }
+    
+    func show(){
+        
     }
 }
 
