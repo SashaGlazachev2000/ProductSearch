@@ -1,6 +1,6 @@
 import Foundation
 
-class ProductFactore {
+class ProductFactory {
     let listProduct: [Product] = [
         Product(image: "The Godfather",
                 code: 11122,
@@ -83,4 +83,12 @@ class ProductFactore {
                 isSeasonal: false,
                 quality: []),
     ]
+    
+    func searcProduct(code: Int) {
+        if listProduct.contains(where: {$0.code == code}) {
+           print(code)
+        } else {
+           print("Noooo code")
+        }
+    }
 }
