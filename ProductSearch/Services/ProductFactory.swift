@@ -1,6 +1,12 @@
 import Foundation
 
 class ProductFactory: ProductFactoryProtocol {
+    private var viewController: ProductFactoryDelegat
+    
+    init(viewController: ProductFactoryDelegat) {
+        self.viewController = viewController
+    }
+    
     let listProduct: [Product] = [
         Product(image: "The Godfather",
                 code: 11122,

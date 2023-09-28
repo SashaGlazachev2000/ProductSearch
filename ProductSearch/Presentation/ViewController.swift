@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, ProductFactoryDelegat {
     
-    private var factoryProduct: ProductFactory?
+    private var factoryProduct: ProductFactoryProtocol?
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var textField: UITextField!
@@ -17,7 +17,8 @@ class ViewController: UIViewController, ProductFactoryDelegat {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        factoryProduct = ProductFactory()
+        
+        factoryProduct = ProductFactory(viewController: self)
     }
 
     @IBAction func searchButtonClicked(_ sender: Any) {
