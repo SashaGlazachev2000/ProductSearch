@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  ProductSearch
-//
-//  Created by Alexandr Glazachev on 27.09.2023.
-//
-
 import UIKit
 
 class ViewController: UIViewController, ProductFactoryDelegat {
@@ -26,8 +19,8 @@ class ViewController: UIViewController, ProductFactoryDelegat {
     }
     
     private func filterTextField() {
-        guard let text = textField.text else {return}
-        if text == "" {return}
+        guard let text = textField.text else { return }
+        if text == "" { return }
         let code = Int(text)
         guard let code = code else { return }
         factoryProduct?.searcProduct(code: code)
@@ -35,6 +28,17 @@ class ViewController: UIViewController, ProductFactoryDelegat {
     
     func show(product: Product){
         imageView.image = UIImage(named: product.image)
+        textViewInfo.text = pushTextAtTextField(product: product)
+        
+    }
+    
+    func pushTextAtTextField(product: Product) -> String{
+        var result = ""
+        result += "Код товара: \(product.code)\n"
+        result += "Кол-во: \(product.amount)\n"
+        result += "Сезон: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n"
+        result += "Свойства: \(product.quality.isEmpty ? "Нет" : "\(product.quality)")\n"
+        return result
     }
 }
 
