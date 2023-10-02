@@ -1,7 +1,7 @@
 import UIKit
 
 class ProductSearchViewController: UIViewController, ProductSearchPresenterDelegate{
-
+    
     var presenter: ProductSearchPresenter?
     
     @IBOutlet private weak var imageView: UIImageView!
@@ -10,7 +10,15 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         presenter = ProductSearchPresenter(viewController: self)
+        
+        textField.delegate = self
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 10
+        textField.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func searchButtonClicked(_ sender: Any) {
@@ -21,7 +29,6 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         imageView.image = UIImage(named: product.image)
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
     }
-    
     
 }
 

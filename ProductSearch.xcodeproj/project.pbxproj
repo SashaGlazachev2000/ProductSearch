@@ -24,6 +24,8 @@
 		B31AB31E2AC5BE1E00A473E8 /* ProductSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */; };
 		B31AB3202AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */; };
 		B31AB3222AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */; };
+		B367F93A2ACABB0A008087D3 /* ProductController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367F9392ACABB0A008087D3 /* ProductController+Extensions.swift */; };
+		B367F93E2ACAD758008087D3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B367F93D2ACAD758008087D3 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchPresenter.swift; sourceTree = "<group>"; };
 		B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewControllerProtocol.swift; sourceTree = "<group>"; };
 		B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchPresenterDelegate.swift; sourceTree = "<group>"; };
+		B367F9392ACABB0A008087D3 /* ProductController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductController+Extensions.swift"; sourceTree = "<group>"; };
+		B367F93D2ACAD758008087D3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				B31AB3102AC45D9700A473E8 /* UIColor+Extensions.swift */,
+				B367F9392ACABB0A008087D3 /* ProductController+Extensions.swift */,
+				B367F93D2ACAD758008087D3 /* UIViewController+Extensions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -327,9 +333,11 @@
 				B31AB3222AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift in Sources */,
 				B31AB31E2AC5BE1E00A473E8 /* ProductSearchPresenter.swift in Sources */,
 				B31AB2DE2AC44C5A00A473E8 /* AppDelegate.swift in Sources */,
+				B367F93A2ACABB0A008087D3 /* ProductController+Extensions.swift in Sources */,
 				B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */,
 				B31AB2E02AC44C5A00A473E8 /* SceneDelegate.swift in Sources */,
 				B31AB31A2AC5B11D00A473E8 /* ProductFactoryDelegat.swift in Sources */,
+				B367F93E2ACAD758008087D3 /* UIViewController+Extensions.swift in Sources */,
 				B31AB3112AC45D9700A473E8 /* UIColor+Extensions.swift in Sources */,
 				B31AB3182AC59EE800A473E8 /* Product.swift in Sources */,
 				B31AB31C2AC5B28500A473E8 /* ProductFactoryPrototcol.swift in Sources */,
@@ -509,6 +517,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZKNWRVFLH3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProductSearch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -536,6 +545,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZKNWRVFLH3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProductSearch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
