@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ProductSearchPresenterDelegate {
-    func show(product: Product)
+    func show(product: Product, currentIndex: Int)
 }

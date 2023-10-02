@@ -2,6 +2,8 @@ import Foundation
 import UIKit
 
 class ProductSearchPresenter: ProductSearchViewControllerProtocol {
+    private var imageIndex = 1
+    private var amountIndexImage = 0
     private var factoryProduct: ProductFactoryProtocol?
     private var viewController: ProductSearchPresenterDelegate
     
@@ -17,7 +19,8 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
         guard let code = code else { return }
         let product = factoryProduct?.searcProduct(code: code)
         guard let product = product else { return }
-        viewController.show(product: product)
+        amountIndexImage = product.amount
+        viewController.show(product: product, currentIndex: imageIndex)
     }
     
     func pushTextAtTextField(product: Product) -> String {
