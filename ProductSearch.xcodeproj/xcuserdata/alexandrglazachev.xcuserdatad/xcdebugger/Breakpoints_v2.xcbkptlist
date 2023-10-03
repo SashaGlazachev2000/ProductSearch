@@ -14,10 +14,10 @@
             filePath = "ProductSearch/Services/ProductFactory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "listProduct"
-            landmarkType = "24">
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "ProductFactory"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
