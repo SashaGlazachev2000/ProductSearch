@@ -13,7 +13,6 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     @IBOutlet private weak var storeOneTextView: UITextView!
     @IBOutlet private weak var storeTwoTextView: UITextView!
     @IBOutlet private weak var indexImageLable: UILabel!
-    @IBOutlet private weak var responceImageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -66,12 +65,17 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     func show(product: Product, currentIndex: Int, isEmptyImage: Bool){
         imageView.tintColor = .appBackground
         imageView.image = isEmptyImage ? UIImage(systemName: "xmark") : UIImage(named: product.image[currentIndex])
-        responceImageView.image = isEmptyImage ? UIImage(systemName: "xmark.circle") : UIImage(systemName: "checkmark.circle")
-        responceImageView.tintColor = isEmptyImage ? .appRed : .appGreen
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
         indexImageLable.text = isEmptyImage ? "0/0" : "\(currentIndex + 1)/\(product.image.count)"
+        storeOneTextView.clipsToBounds = true
+        storeTwoTextView.clipsToBounds = true
+        storeOneTextView.backgroundColor = .appGray
+        storeTwoTextView.backgroundColor = .appGray
+        storeOneTextView.layer.cornerRadius = 10
+        storeTwoTextView.layer.cornerRadius = 10
         storeOneTextView.text = presenter?.pushTextAtStoreOneTextField(product: product)
         storeTwoTextView.text = presenter?.pushTextAtStoreTwoTextField(product: product)
+        
     }
     
     

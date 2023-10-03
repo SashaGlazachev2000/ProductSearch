@@ -125,7 +125,7 @@ class ProductFactory: ProductFactoryProtocol {
             //            image: [],
             code: 19999,
             barcode: 19999,
-            name: "Кофта тепл в ассорт пузырьки",
+            name: "Кофта женск трикотаж хаки, железн кнопк Mei ren yu 36-44",
             amount: 4,
             amountStoreOne: 1,
             amountStoreTwo: 3,
