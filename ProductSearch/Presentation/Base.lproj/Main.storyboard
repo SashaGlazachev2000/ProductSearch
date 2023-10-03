@@ -141,6 +141,7 @@
                         <outlet property="backButtonImage" destination="M8o-VL-Jcf" id="01h-sg-f3b"/>
                         <outlet property="imageView" destination="mja-p7-bsg" id="odV-Ev-ZM8"/>
                         <outlet property="nextButtonImage" destination="tum-U5-GfN" id="4uI-Sc-b3h"/>
+                        <outlet property="searchButton" destination="7rl-AM-epM" id="4d2-pJ-XJB"/>
                         <outlet property="textField" destination="OFF-jU-R69" id="leQ-IF-n3o"/>
                         <outlet property="textViewInfo" destination="w8p-lK-jld" id="pF4-rI-xIP"/>
                     </connections>

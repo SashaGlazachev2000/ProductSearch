@@ -10,6 +10,7 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     
     @IBOutlet private weak var backButtonImage: UIButton!
     @IBOutlet private weak var nextButtonImage: UIButton!
+    @IBOutlet weak var searchButton: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         presenter = ProductSearchPresenter(viewController: self)
         
         buttonImageSettings()
+        imageProductSettings()
         
         textField.delegate = self
         textField.clipsToBounds = true
@@ -36,7 +38,14 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     @IBAction private func nextButtonImageClicked(_ sender: Any) {
     }
     
+    func imageProductSettings() {
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+    }
+    
     func buttonImageSettings() {
+        searchButton.clipsToBounds = true
+        searchButton.layer.cornerRadius = 10
         backButtonImage.clipsToBounds = true
         nextButtonImage.clipsToBounds = true
         let height = backButtonImage.layer.bounds.height
