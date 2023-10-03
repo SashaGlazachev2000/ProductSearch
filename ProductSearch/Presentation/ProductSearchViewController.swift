@@ -7,10 +7,10 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var textViewInfo: UITextView!
-    
     @IBOutlet private weak var backButtonImage: UIButton!
     @IBOutlet private weak var nextButtonImage: UIButton!
-    @IBOutlet weak var searchButton: UIStackView!
+    @IBOutlet private weak var searchButton: UIStackView!
+    @IBOutlet private weak var indexImageLable: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +33,19 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     }
     
     @IBAction private func backButtonImageClicked(_ sender: Any) {
+        presenter?.backIndexImage()
     }
     
     @IBAction private func nextButtonImageClicked(_ sender: Any) {
+        presenter?.nextIndexImage()
     }
     
-    func imageProductSettings() {
+    private func imageProductSettings() {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
     }
     
-    func buttonImageSettings() {
+    private func buttonImageSettings() {
         searchButton.clipsToBounds = true
         searchButton.layer.cornerRadius = 10
         backButtonImage.clipsToBounds = true
@@ -56,10 +58,19 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     }
     
     
-    func show(product: Product, currentIndex: Int){
-        imageView.image = UIImage(named: product.image[currentIndex])
-        textViewInfo.text = presenter?.pushTextAtTextField(product: product)
+    func show(product: Product, currentIndex: Int, isEmptyImage: Bool){
+        if isEmptyImage {
+            imageView.image = nil
+            textViewInfo.text = presenter?.pushTextAtTextField(product: product)
+            indexImageLable.text = "0/0"
+        }
+        else {
+            imageView.image = UIImage(named: product.image[currentIndex])
+            textViewInfo.text = presenter?.pushTextAtTextField(product: product)
+            indexImageLable.text = "\(currentIndex + 1)/\(product.image.count)"
+        }
     }
+    
     
 }
 

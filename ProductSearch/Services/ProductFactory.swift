@@ -75,7 +75,9 @@ class ProductFactory: ProductFactoryProtocol {
                 price: 1400,
                 isSeasonal: true,
                 quality: ["34"]),
-        Product(image: ["Vivarium", "Tesla", "Deadpool"],
+        Product(
+//            image: ["Vivarium", "Tesla", "Deadpool"],
+            image: [],
                 code: 19999,
                 barcode: 19999,
                 name: "Кофта тепл в ассорт пузырьки",

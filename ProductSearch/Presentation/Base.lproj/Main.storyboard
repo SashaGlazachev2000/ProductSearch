@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-mu-Uhs">
-                                <rect key="frame" x="20" y="58" width="374" height="804"/>
+                                <rect key="frame" x="20" y="93" width="374" height="769"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mja-p7-bsg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
@@ -56,7 +56,7 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8p-lK-jld">
-                                        <rect key="frame" x="0.0" y="474" width="374" height="330"/>
+                                        <rect key="frame" x="0.0" y="474" width="374" height="295"/>
                                         <color key="backgroundColor" name="App Background"/>
                                         <color key="textColor" name="App White"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -65,7 +65,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erz-ai-tjZ">
-                                <rect key="frame" x="20" y="58" width="374" height="374"/>
+                                <rect key="frame" x="20" y="93" width="374" height="374"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="K9x-Ts-KOs">
                                         <rect key="frame" x="10" y="172" width="354" height="30"/>
@@ -124,22 +124,32 @@
                                     <constraint firstItem="K9x-Ts-KOs" firstAttribute="leading" secondItem="erz-ai-tjZ" secondAttribute="leading" constant="10" id="osZ-PW-Sg1"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG9-uL-thS">
+                                <rect key="frame" x="367.5" y="58" width="26.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="App White"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="App Background"/>
                         <constraints>
-                            <constraint firstItem="YaH-mu-Uhs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="3jO-1G-PIz"/>
+                            <constraint firstItem="YaH-mu-Uhs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="3jO-1G-PIz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zG9-uL-thS" secondAttribute="trailing" constant="20" id="9h2-2X-tyk"/>
+                            <constraint firstItem="zG9-uL-thS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="CfO-sx-CBW"/>
+                            <constraint firstItem="zG9-uL-thS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Dmm-Oy-4kA"/>
                             <constraint firstItem="YaH-mu-Uhs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="F2k-Di-ghf"/>
                             <constraint firstItem="YaH-mu-Uhs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="OUJ-XK-8uI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="erz-ai-tjZ" secondAttribute="trailing" constant="20" id="Pdi-AA-TQL"/>
                             <constraint firstItem="YaH-mu-Uhs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="r7M-R2-YXw"/>
                             <constraint firstItem="erz-ai-tjZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vfH-AT-GSf"/>
-                            <constraint firstItem="erz-ai-tjZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="yoF-9K-7GM"/>
+                            <constraint firstItem="erz-ai-tjZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="yoF-9K-7GM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButtonImage" destination="M8o-VL-Jcf" id="01h-sg-f3b"/>
                         <outlet property="imageView" destination="mja-p7-bsg" id="odV-Ev-ZM8"/>
+                        <outlet property="indexImageLable" destination="zG9-uL-thS" id="do2-VR-aLD"/>
                         <outlet property="nextButtonImage" destination="tum-U5-GfN" id="4uI-Sc-b3h"/>
                         <outlet property="searchButton" destination="7rl-AM-epM" id="4d2-pJ-XJB"/>
                         <outlet property="textField" destination="OFF-jU-R69" id="leQ-IF-n3o"/>
