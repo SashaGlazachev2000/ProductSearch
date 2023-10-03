@@ -49,6 +49,7 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
     
     func pushTextAtTextField(product: Product) -> String {
         var result = ""
+        result += "Имя: \(product.name)\n\n"
         result += "Код товара: \(product.code)\n"
         result += "Кол-во: \(product.amount)\n"
         result += "Сезон: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n"

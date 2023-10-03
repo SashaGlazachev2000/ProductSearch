@@ -3,15 +3,15 @@ import Foundation
 class ProductFactory: ProductFactoryProtocol {
     
     let listProduct: [Product] = [
-        Product(image: ["The Godfather"],
-                code: 11122,
-                barcode: 11122,
+        Product(image: [],
+                code: 11111,
+                barcode: 11111,
                 name: "Кофта муж син черн полоск",
                 amount: 3,
                 price: 2000,
                 isSeasonal: true,
                 quality: []),
-        Product(image: ["The Dark Knight"],
+        Product(image: ["The Dark Knight", "The Godfather"],
                 code: 23411,
                 barcode: 23411,
                 name: "Блузка женск син черн карак 34-40",
@@ -76,8 +76,8 @@ class ProductFactory: ProductFactoryProtocol {
                 isSeasonal: true,
                 quality: ["34"]),
         Product(
-//            image: ["Vivarium", "Tesla", "Deadpool"],
-            image: [],
+            image: ["Vivarium", "Tesla", "Deadpool"],
+//            image: [],
                 code: 19999,
                 barcode: 19999,
                 name: "Кофта тепл в ассорт пузырьки",

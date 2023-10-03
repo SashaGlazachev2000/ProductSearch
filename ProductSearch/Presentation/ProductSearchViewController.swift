@@ -12,9 +12,10 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     @IBOutlet private weak var searchButton: UIStackView!
     @IBOutlet private weak var indexImageLable: UILabel!
     
+    @IBOutlet weak var responceImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         presenter = ProductSearchPresenter(viewController: self)
         
         buttonImageSettings()
@@ -59,16 +60,11 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     
     
     func show(product: Product, currentIndex: Int, isEmptyImage: Bool){
-        if isEmptyImage {
-            imageView.image = nil
-            textViewInfo.text = presenter?.pushTextAtTextField(product: product)
-            indexImageLable.text = "0/0"
-        }
-        else {
-            imageView.image = UIImage(named: product.image[currentIndex])
-            textViewInfo.text = presenter?.pushTextAtTextField(product: product)
-            indexImageLable.text = "\(currentIndex + 1)/\(product.image.count)"
-        }
+        imageView.image = isEmptyImage ? nil : UIImage(named: product.image[currentIndex])
+        responceImageView.image = isEmptyImage ? UIImage(systemName: "xmark.circle") : UIImage(systemName: "checkmark.circle")
+        responceImageView.tintColor = isEmptyImage ? .appRed : .appGreen
+        textViewInfo.text = presenter?.pushTextAtTextField(product: product)
+        indexImageLable.text = "\(currentIndex + 1)/\(product.image.count)"
     }
     
     
