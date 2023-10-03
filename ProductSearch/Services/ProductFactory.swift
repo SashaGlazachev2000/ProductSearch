@@ -98,14 +98,14 @@ class ProductFactory: ProductFactoryProtocol {
                 code: 10001,
                 barcode: 10001,
                 name: "Футболка мужск черн однотон",
-                amount: 3,
-                amountStoreOne: 0,
-                amountStoreTwo: 3,
+                amount: 10,
+                amountStoreOne: 9,
+                amountStoreTwo: 1,
                 price: 550,
                 isSeasonal: true,
                 quality: ["Xl", "2Xl", "3Xl"],
-                qualityStoreOne: [],
-                qualityStoreTwo: []
+                qualityStoreOne: ["Xl", "2Xl", "3Xl", "4Xl", "5Xl", "6Xl", "7Xl", "8Xl", "9Xl",],
+                qualityStoreTwo: ["10Xl"]
                ),
         Product(image: ["Tesla"],
                 code: 13222,
@@ -117,7 +117,7 @@ class ProductFactory: ProductFactoryProtocol {
                 price: 1400,
                 isSeasonal: true,
                 quality: ["34"],
-                qualityStoreOne: [],
+                qualityStoreOne: ["34"],
                 qualityStoreTwo: []
                ),
         Product(

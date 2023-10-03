@@ -49,11 +49,25 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
     
     func pushTextAtTextField(product: Product) -> String {
         var result = ""
-        result += "Имя: \(product.name)\n\n"
         result += "Код товара: \(product.code)\n"
         result += "Кол-во: \(product.amount)\n"
         result += "Сезон: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n"
-        result += "Свойства: \(product.quality.isEmpty ? "Нет" : "\(product.quality)")\n"
+        return result
+    }
+    
+    func pushTextAtStoreOneTextField(product: Product) -> String {
+        var result = ""
+        result += "Ст.КАВКАЗСКАЯ\n\n"
+        result += "Кол-во: \(product.amountStoreOne)\n"
+        result += "Свойства: \(product.qualityStoreOne.isEmpty ? "Нет" : "\(product.qualityStoreOne)")\n"
+        return result
+    }
+    
+    func pushTextAtStoreTwoTextField(product: Product) -> String {
+        var result = ""
+        result += "М.ГОРЬКОГО\n\n"
+        result += "Кол-во: \(product.amountStoreTwo)\n"
+        result += "Свойства: \(product.qualityStoreTwo.isEmpty ? "Нет" : "\(product.qualityStoreTwo)")\n"
         return result
     }
     

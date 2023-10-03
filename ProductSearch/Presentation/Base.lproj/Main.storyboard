@@ -55,13 +55,38 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8p-lK-jld">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0NF-yF-123">
                                         <rect key="frame" x="0.0" y="474" width="374" height="295"/>
-                                        <color key="backgroundColor" name="App Background"/>
-                                        <color key="textColor" name="App White"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8p-lK-jld">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="166"/>
+                                                <color key="backgroundColor" name="App Background"/>
+                                                <color key="textColor" name="App White"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-nc-b6y">
+                                                <rect key="frame" x="0.0" y="186" width="374" height="109"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-XL-kR2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="109"/>
+                                                        <color key="backgroundColor" name="App Gray"/>
+                                                        <color key="textColor" name="App White"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydt-uL-bQf">
+                                                        <rect key="frame" x="147" y="0.0" width="227" height="109"/>
+                                                        <color key="backgroundColor" name="App Gray"/>
+                                                        <color key="textColor" name="App White"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erz-ai-tjZ">
@@ -170,6 +195,8 @@
                         <outlet property="nextButtonImage" destination="tum-U5-GfN" id="4uI-Sc-b3h"/>
                         <outlet property="responceImageView" destination="SC9-7a-Vqe" id="qqB-gE-dPd"/>
                         <outlet property="searchButton" destination="7rl-AM-epM" id="4d2-pJ-XJB"/>
+                        <outlet property="storeOneTextView" destination="SsQ-XL-kR2" id="gcu-Wq-tVs"/>
+                        <outlet property="storeTwoTextView" destination="ydt-uL-bQf" id="j18-Ji-xg7"/>
                         <outlet property="textField" destination="OFF-jU-R69" id="leQ-IF-n3o"/>
                         <outlet property="textViewInfo" destination="w8p-lK-jld" id="pF4-rI-xIP"/>
                     </connections>
@@ -188,6 +215,9 @@
         </namedColor>
         <namedColor name="App Button Opacity">
             <color red="0.21568627450980393" green="0.21568627450980393" blue="0.21568627450980393" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="App Gray">
+            <color red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="App White">
             <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
