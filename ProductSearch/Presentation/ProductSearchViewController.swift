@@ -60,11 +60,12 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     
     
     func show(product: Product, currentIndex: Int, isEmptyImage: Bool){
-        imageView.image = isEmptyImage ? nil : UIImage(named: product.image[currentIndex])
+        imageView.tintColor = .appBackground
+        imageView.image = isEmptyImage ? UIImage(systemName: "xmark") : UIImage(named: product.image[currentIndex])
         responceImageView.image = isEmptyImage ? UIImage(systemName: "xmark.circle") : UIImage(systemName: "checkmark.circle")
         responceImageView.tintColor = isEmptyImage ? .appRed : .appGreen
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
-        indexImageLable.text = "\(currentIndex + 1)/\(product.image.count)"
+        indexImageLable.text = isEmptyImage ? "0/0" : "\(currentIndex + 1)/\(product.image.count)"
     }
     
     
