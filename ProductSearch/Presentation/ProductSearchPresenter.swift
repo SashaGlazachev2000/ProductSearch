@@ -7,22 +7,14 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
     private var isEmptyImage = true
     private var factoryProduct: ProductFactoryProtocol?
     private var viewController: ProductSearchPresenterDelegate
-    private var product: Product?
+    private var product: ProductStep?
     
     init(viewController: ProductSearchPresenterDelegate) {
         self.viewController = viewController
         factoryProduct = ProductFactory()
     }
     
-    func filterTextField(text: String?) {
-        guard let text = text else { return }
-        if text == "" { return }
-        let code = Int(text)
-        guard let code = code else { return }
-        getProduct(code: code)
-    }
-    
-    func getProduct(code: Int) {
+    private func pushCodeFactory(code: Int) {
         let product = factoryProduct?.searcProduct(code: code)
         guard let product = product else { return }
         self.isEmptyImage = product.image.isEmpty
@@ -31,6 +23,14 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
         amountIndexImage = product.image.count
         viewController.show(product: product, currentIndex: currentImageIndex, isEmptyImage: self.isEmptyImage)
         
+    }
+    
+    func filterTextField(text: String?) {
+        guard let text = text else { return }
+        if text == "" { return }
+        let code = Int(text)
+        guard let code = code else { return }
+        pushCodeFactory(code: code)
     }
     
     func nextIndexImage() {
@@ -47,7 +47,7 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
         viewController.show(product: product, currentIndex: currentImageIndex, isEmptyImage: self.isEmptyImage)
     }
     
-    func pushTextAtTextField(product: Product) -> String {
+    func pushTextAtTextField(product: ProductStep) -> String {
         var result = ""
         result += "ИМЯ: \(product.name)\n"
         result += "КОД: \(product.code)\n"
@@ -56,20 +56,13 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
         return result
     }
     
-    func pushTextAtStoreOneTextField(product: Product) -> String {
+    func pushTextAtStoreTextField(store: Store) -> String {
         var result = ""
-        result += "Ст.КАВКАЗСКАЯ\n\n"
-        result += "Кол-во: \(product.amountStoreOne)\n"
-        result += "Свойства: \(product.qualityStoreOne.isEmpty ? "Нет" : "\(product.qualityStoreOne)")\n"
+        result += "\(store.store)\n\n"
+        result += "Кол-во: \(store.amount)\n"
+        result += "Свойства: \(store.quality.isEmpty ? "Нет" : "\(store.quality)")\n"
         return result
     }
     
-    func pushTextAtStoreTwoTextField(product: Product) -> String {
-        var result = ""
-        result += "М.ГОРЬКОГО\n\n"
-        result += "Кол-во: \(product.amountStoreTwo)\n"
-        result += "Свойства: \(product.qualityStoreTwo.isEmpty ? "Нет" : "\(product.qualityStoreTwo)")\n"
-        return result
-    }
     
 }

@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ProductFactoryProtocol {
-    func searcProduct(code: Int) -> Product?
+    func searcProduct(code: Int) -> ProductStep?
 }

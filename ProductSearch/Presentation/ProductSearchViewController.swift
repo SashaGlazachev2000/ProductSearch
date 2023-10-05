@@ -62,9 +62,9 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         
     }
     
-    func show(product: Product, currentIndex: Int, isEmptyImage: Bool){
+    func show(product: ProductStep, currentIndex: Int, isEmptyImage: Bool){
         imageView.tintColor = .appBackground
-        imageView.image = isEmptyImage ? UIImage(systemName: "xmark") : UIImage(named: product.image[currentIndex])
+        imageView.image = isEmptyImage ? UIImage(systemName: "xmark") : UIImage(data: product.image)
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
         indexImageLable.text = isEmptyImage ? "0/0" : "\(currentIndex + 1)/\(product.image.count)"
         storeOneTextView.clipsToBounds = true
@@ -73,9 +73,6 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         storeTwoTextView.backgroundColor = .appGray
         storeOneTextView.layer.cornerRadius = 10
         storeTwoTextView.layer.cornerRadius = 10
-        storeOneTextView.text = presenter?.pushTextAtStoreOneTextField(product: product)
-        storeTwoTextView.text = presenter?.pushTextAtStoreTwoTextField(product: product)
-        
     }
     
     
