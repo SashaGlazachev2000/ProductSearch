@@ -33,6 +33,7 @@ struct NetworkClient: NetworkRouting {
             if let response = response as? HTTPURLResponse,
                response.statusCode < 200 || response.statusCode >= 300 {
                 handler(.failure(NetworkError.codeError))
+                print(response.statusCode)
                 return
             }
             // Возвращаем данные

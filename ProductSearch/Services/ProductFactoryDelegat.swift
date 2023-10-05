@@ -1,5 +1,6 @@
 import Foundation
 
 protocol ProductFactoryDelegat {
-    func show(product: Product)
+    func pushProductToController(product: ProductStep)
+    func pushImageToController(data: Data)
 }

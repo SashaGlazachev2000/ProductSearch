@@ -22,7 +22,7 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         
         buttonImageSettings()
         imageProductSettings()
-        
+        imageView.tintColor = .appBackground
         textField.delegate = self
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 10
@@ -62,11 +62,9 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         
     }
     
-    func show(product: ProductStep, currentIndex: Int, isEmptyImage: Bool){
-        imageView.tintColor = .appBackground
-        imageView.image = isEmptyImage ? UIImage(systemName: "xmark") : UIImage(data: product.image)
+    func show(product: ProductStep, currentIndex: Int){
+        
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
-        indexImageLable.text = isEmptyImage ? "0/0" : "\(currentIndex + 1)/\(product.image.count)"
         storeOneTextView.clipsToBounds = true
         storeTwoTextView.clipsToBounds = true
         storeOneTextView.backgroundColor = .appGray
@@ -75,6 +73,10 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         storeTwoTextView.layer.cornerRadius = 10
     }
     
+    func showImage(data: Data) {
+        imageView.image = UIImage(data: data)
+//        indexImageLable.text = isEmptyImage ? "0/0" : "\(currentIndex + 1)/\(product.image.count)"
+    }
     
 }
 

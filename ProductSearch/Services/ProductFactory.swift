@@ -2,10 +2,14 @@ import Foundation
 
 class ProductFactory: ProductFactoryProtocol {
     
-    let loader: ProductLoaderProtocol
+    let delegate: ProductFactoryDelegat
+    let loaderProduct: ProductLoaderProtocol
+    let loaderImage: ImageLoaderProtocol
     
-    init(loader: ProductLoader = ProductLoader()) {
-        self.loader = loader
+    init(loaderProduct: ProductLoaderProtocol = ProductLoader(), loaderImage: ImageLoaderProtocol = ImageLoader(), delegate: ProductFactoryDelegat) {
+        self.loaderProduct = loaderProduct
+        self.delegate = delegate
+        self.loaderImage = loaderImage
     }
     
     
@@ -35,35 +39,64 @@ class ProductFactory: ProductFactoryProtocol {
     }
     
     
-    func searcProduct(code: Int) -> ProductStep? {
-        
-        loader.loadProduct(
-            urlString: "https://ceshops.ru:8443/sem/hs/product_search",
-            queryItems: [URLQueryItem(name: "barcode", value: "22303")]) { result in
-                
-            switch result {
-                
-            case .success(let product):
-                let imageList = Data()
-                
-                let productStep = ProductStep(
-                    image: imageList,
-                    code: product.code,
-                    barcode: product.barcode,
-                    name: product.name,
-                    amount: product.amount,
-                    price: product.price,
-                    isSeasonal: product.isSeasonal,
-                    quality: product.quality,
-                    stores: product.stores)
-                
-                print(productStep.code)
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+    func searcProduct(code: Int) {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+
+            loaderProduct.loadProduct(
+                urlString: "https://ceshops.ru:8443/sem/hs/product_search",
+                queryItems: [URLQueryItem(name: "barcode", value: "\(code)")]) { result in
+
+                    switch result {
+
+                    case .success(let product):
+                        let imageList = Data()
+
+                        let productStep = ProductStep(
+                            image: imageList,
+                            code: product.code,
+                            barcode: product.barcode,
+                            name: product.name,
+                            amount: product.amount,
+                            price: product.price,
+                            isSeasonal: product.isSeasonal,
+                            quality: product.quality,
+                            stores: product.stores)
+
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            self.delegate.pushProductToController(product: productStep)
+                        }
+                        
+                        DispatchQueue.global().async { [weak self] in
+                            guard let self = self else { return }
+                            
+                            let list: [URLQueryItem] = [
+                                URLQueryItem(name: "code", value: "\(code)"),
+                                URLQueryItem(name: "index", value: "\(product.images_count)")]
+                            
+                            loaderImage.loadDataImage(
+                                urlString: "https://ceshops.ru:8443/sem/hs/product_img",
+                                queryItems: list) { result in
+                                    switch result {
+                                    case .success(let data):
+                                        DispatchQueue.main.async { [weak self] in
+                                            guard let self = self else { return }
+                                            self.delegate.pushImageToController(data: data)
+                                        }
+                                    case .failure(let error):
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                        }
+
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
         }
-        return nil
+        
+       
     }
     
     

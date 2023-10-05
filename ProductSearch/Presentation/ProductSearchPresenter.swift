@@ -1,28 +1,31 @@
 import Foundation
 import UIKit
 
-class ProductSearchPresenter: ProductSearchViewControllerProtocol {
+class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactoryDelegat {
     private var currentImageIndex = 0
     private var amountIndexImage = 0
-    private var isEmptyImage = true
     private var factoryProduct: ProductFactoryProtocol?
     private var viewController: ProductSearchPresenterDelegate
     private var product: ProductStep?
     
     init(viewController: ProductSearchPresenterDelegate) {
         self.viewController = viewController
-        factoryProduct = ProductFactory()
+        factoryProduct = ProductFactory(delegate: self)
     }
     
     private func pushCodeFactory(code: Int) {
-        let product = factoryProduct?.searcProduct(code: code)
-        guard let product = product else { return }
-        self.isEmptyImage = product.image.isEmpty
+        factoryProduct?.searcProduct(code: code)
+    }
+    
+    func pushProductToController(product: ProductStep) {
         self.product = product
         currentImageIndex = 0
         amountIndexImage = product.image.count
-        viewController.show(product: product, currentIndex: currentImageIndex, isEmptyImage: self.isEmptyImage)
-        
+        viewController.show(product: product, currentIndex: currentImageIndex)
+    }
+    
+    func pushImageToController(data: Data) {
+        viewController.showImage(data: data)
     }
     
     func filterTextField(text: String?) {
@@ -37,14 +40,14 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
         guard let product = self.product else { return }
         if currentImageIndex == amountIndexImage - 1 { return }
         currentImageIndex += 1
-        viewController.show(product: product, currentIndex: currentImageIndex, isEmptyImage: self.isEmptyImage)
+        viewController.show(product: product, currentIndex: currentImageIndex)
     }
     
     func backIndexImage() {
         guard let product = self.product else { return }
         if currentImageIndex == 0 { return }
         currentImageIndex -= 1
-        viewController.show(product: product, currentIndex: currentImageIndex, isEmptyImage: self.isEmptyImage)
+        viewController.show(product: product, currentIndex: currentImageIndex)
     }
     
     func pushTextAtTextField(product: ProductStep) -> String {
@@ -52,6 +55,7 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol {
         result += "ИМЯ: \(product.name)\n"
         result += "КОД: \(product.code)\n"
         result += "КОЛ-ВО: \(product.amount)\n"
+        result += "Сво-во: \(product.quality)\n"
         result += "СЕЗОН: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n"
         return result
     }
