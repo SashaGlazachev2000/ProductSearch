@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -15,24 +15,24 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ProductSearchViewController" customModule="ProductSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-mu-Uhs">
-                                <rect key="frame" x="20" y="93" width="374" height="759"/>
+                                <rect key="frame" x="20" y="92" width="350" height="708"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mja-p7-bsg">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mja-p7-bsg" secondAttribute="height" multiplier="1:1" id="9xH-8z-fBF"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7rl-AM-epM">
-                                        <rect key="frame" x="0.0" y="394" width="374" height="60"/>
+                                        <rect key="frame" x="0.0" y="370" width="350" height="60"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите код" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OFF-jU-R69">
-                                                <rect key="frame" x="0.0" y="0.0" width="304" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Wsp-X7-ptP"/>
                                                 </constraints>
@@ -40,7 +40,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eny-eE-IwY">
-                                                <rect key="frame" x="314" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="290" y="0.0" width="60" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="OaO-Zs-N4j"/>
                                                     <constraint firstAttribute="width" secondItem="Eny-eE-IwY" secondAttribute="height" multiplier="1:1" id="dls-TH-PXZ"/>
@@ -55,45 +55,20 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0NF-yF-123">
-                                        <rect key="frame" x="0.0" y="474" width="374" height="285"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8p-lK-jld">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="119"/>
-                                                <color key="backgroundColor" name="App Background"/>
-                                                <color key="textColor" name="App White"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-nc-b6y">
-                                                <rect key="frame" x="0.0" y="139" width="374" height="146"/>
-                                                <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-XL-kR2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="131" height="146"/>
-                                                        <color key="backgroundColor" name="App Background"/>
-                                                        <color key="textColor" name="App White"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydt-uL-bQf">
-                                                        <rect key="frame" x="141" y="0.0" width="233" height="146"/>
-                                                        <color key="backgroundColor" name="App Background"/>
-                                                        <color key="textColor" name="App White"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8p-lK-jld">
+                                        <rect key="frame" x="0.0" y="450" width="350" height="258"/>
+                                        <color key="backgroundColor" name="App Background"/>
+                                        <color key="textColor" name="App White"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erz-ai-tjZ">
-                                <rect key="frame" x="20" y="93" width="374" height="374"/>
+                                <rect key="frame" x="20" y="92" width="350" height="350"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="K9x-Ts-KOs">
-                                        <rect key="frame" x="10" y="172" width="354" height="30"/>
+                                        <rect key="frame" x="10" y="160" width="330" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8o-VL-Jcf">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -117,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tum-U5-GfN">
-                                                <rect key="frame" x="324" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="300" y="0.0" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Drw-9j-RmG"/>
                                                     <constraint firstAttribute="width" secondItem="tum-U5-GfN" secondAttribute="height" multiplier="1:1" id="RZc-0B-5VU"/>
@@ -140,11 +115,21 @@
                                         </subviews>
                                     </stackView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="W4X-Yj-2bR">
-                                        <rect key="frame" x="177" y="177" width="20" height="20"/>
+                                        <rect key="frame" x="165" y="165" width="20" height="20"/>
                                     </activityIndicatorView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4v6-Qo-Lh4">
+                                        <rect key="frame" x="110" y="111.00000000000001" width="130" height="128.33333333333331"/>
+                                        <color key="tintColor" name="App Background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="Dgl-OV-YQl"/>
+                                            <constraint firstAttribute="height" constant="130" id="sS6-Us-R6T"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="4v6-Qo-Lh4" firstAttribute="centerY" secondItem="erz-ai-tjZ" secondAttribute="centerY" id="3IK-bF-Ob3"/>
+                                    <constraint firstItem="4v6-Qo-Lh4" firstAttribute="centerX" secondItem="erz-ai-tjZ" secondAttribute="centerX" id="I6a-xk-GRm"/>
                                     <constraint firstAttribute="trailing" secondItem="K9x-Ts-KOs" secondAttribute="trailing" constant="10" id="Lvs-pf-jDk"/>
                                     <constraint firstItem="K9x-Ts-KOs" firstAttribute="centerY" secondItem="erz-ai-tjZ" secondAttribute="centerY" id="OnL-15-4Sc"/>
                                     <constraint firstItem="K9x-Ts-KOs" firstAttribute="centerX" secondItem="erz-ai-tjZ" secondAttribute="centerX" id="SiM-0I-pCC"/>
@@ -154,8 +139,8 @@
                                     <constraint firstItem="W4X-Yj-2bR" firstAttribute="centerX" secondItem="erz-ai-tjZ" secondAttribute="centerX" id="zs9-gL-rp9"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG9-uL-thS">
-                                <rect key="frame" x="364" y="58" width="30" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG9-uL-thS">
+                                <rect key="frame" x="370" y="57" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="App White"/>
                                 <nil key="highlightedColor"/>
@@ -183,8 +168,7 @@
                         <outlet property="indicatorImage" destination="W4X-Yj-2bR" id="Foy-yt-M60"/>
                         <outlet property="nextButtonImage" destination="tum-U5-GfN" id="4uI-Sc-b3h"/>
                         <outlet property="searchButton" destination="7rl-AM-epM" id="4d2-pJ-XJB"/>
-                        <outlet property="storeOneTextView" destination="SsQ-XL-kR2" id="gcu-Wq-tVs"/>
-                        <outlet property="storeTwoTextView" destination="ydt-uL-bQf" id="j18-Ji-xg7"/>
+                        <outlet property="searchImageView" destination="4v6-Qo-Lh4" id="ohi-O3-DXD"/>
                         <outlet property="textField" destination="OFF-jU-R69" id="leQ-IF-n3o"/>
                         <outlet property="textViewInfo" destination="w8p-lK-jld" id="pF4-rI-xIP"/>
                     </connections>

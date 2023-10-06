@@ -8,9 +8,8 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
     @IBOutlet private weak var indexImageLable: UILabel!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var textViewInfo: UITextView!
-    @IBOutlet private weak var storeOneTextView: UITextView!
-    @IBOutlet private weak var storeTwoTextView: UITextView!
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var searchImageView: UIImageView!
     @IBOutlet private weak var searchButton: UIStackView!
     @IBOutlet private weak var indicatorImage: UIActivityIndicatorView!
     @IBOutlet private weak var backButtonImage: UIButton!
@@ -47,7 +46,7 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
     
     
     private func imageProductSettings() {
-        imageView.tintColor = .appBackground
+        imageView.backgroundColor = .appGray
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
     }
@@ -60,6 +59,10 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
     }
     
     private func buttonImageSettings() {
+        backButtonImage.alpha = 0
+        nextButtonImage.alpha = 0
+        backButtonImage.isEnabled = false
+        nextButtonImage.isEnabled = false
         searchButton.clipsToBounds = true
         searchButton.layer.cornerRadius = 10
         backButtonImage.clipsToBounds = true
@@ -74,6 +77,8 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
     func startIndicatorImage() {
         indicatorImage.startAnimating()
         imageView.image = nil
+        searchImageView.image = nil
+        imageView.backgroundColor = .appTextBackground
     }
     
     func stopIndicatorImage() {
@@ -81,14 +86,10 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
     }
     
     func show(product: ProductStep, currentIndex: Int){
-        
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
-        storeOneTextView.clipsToBounds = true
-        storeTwoTextView.clipsToBounds = true
-        storeOneTextView.backgroundColor = .appGray
-        storeTwoTextView.backgroundColor = .appGray
-        storeOneTextView.layer.cornerRadius = 10
-        storeTwoTextView.layer.cornerRadius = 10
+        textViewInfo.clipsToBounds = true
+        textViewInfo.backgroundColor = .appGray
+        textViewInfo.layer.cornerRadius = 10
     }
     
     func showImage(data: Data) {

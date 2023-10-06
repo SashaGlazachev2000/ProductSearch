@@ -61,15 +61,21 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         result += "КОД: \(product.code)\n"
         result += "КОЛ-ВО: \(product.amount)\n"
         result += "Сво-во: \(product.quality)\n"
-        result += "СЕЗОН: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n"
+        result += "СЕЗОН: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n\n"
+        
+        product.stores.forEach { store in
+            result += pushTextAtStoreTextField(store: store)
+            result += "\n"
+        }
         return result
     }
     
     func pushTextAtStoreTextField(store: Store) -> String {
         var result = ""
-        result += "\(store.store)\n\n"
+        result += "____\(store.store)____\n"
         result += "Кол-во: \(store.amount)\n"
         result += "Свойства: \(store.quality.isEmpty ? "Нет" : "\(store.quality)")\n"
+        result += "___________\n"
         return result
     }
     
