@@ -2,17 +2,18 @@ import UIKit
 
 class ProductSearchViewController: UIViewController, ProductSearchPresenterDelegate{
     
-    var presenter: ProductSearchViewControllerProtocol?
+    private var presenter: ProductSearchViewControllerProtocol?
     
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var indexImageLable: UILabel!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var textViewInfo: UITextView!
-    @IBOutlet private weak var backButtonImage: UIButton!
-    @IBOutlet private weak var nextButtonImage: UIButton!
-    @IBOutlet private weak var searchButton: UIStackView!
     @IBOutlet private weak var storeOneTextView: UITextView!
     @IBOutlet private weak var storeTwoTextView: UITextView!
-    @IBOutlet private weak var indexImageLable: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var searchButton: UIStackView!
+    @IBOutlet private weak var indicatorImage: UIActivityIndicatorView!
+    @IBOutlet private weak var backButtonImage: UIButton!
+    @IBOutlet private weak var nextButtonImage: UIButton!
     
     
     override func viewDidLoad() {
@@ -20,13 +21,11 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         
         presenter = ProductSearchPresenter(viewController: self)
         
+        textFieldSettings()
         buttonImageSettings()
         imageProductSettings()
-        imageView.tintColor = .appBackground
-        textField.delegate = self
-        textField.clipsToBounds = true
-        textField.layer.cornerRadius = 10
-        textField.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        indicatorImage.hidesWhenStopped = true
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -45,10 +44,17 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     }
     
     private func imageProductSettings() {
+        imageView.tintColor = .appBackground
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
     }
     
+    private func textFieldSettings() {
+        textField.delegate = self
+        textField.clipsToBounds = true
+        textField.layer.cornerRadius = 10
+        textField.layer.borderColor = UIColor.systemBlue.cgColor
+    }
     
     private func buttonImageSettings() {
         searchButton.clipsToBounds = true
@@ -60,6 +66,15 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         backButtonImage.layer.cornerRadius = radius
         nextButtonImage.layer.cornerRadius = radius
         
+    }
+    
+    func startIndicatorImage() {
+        indicatorImage.startAnimating()
+        imageView.image = nil
+    }
+    
+    func stopIndicatorImage() {
+        indicatorImage.stopAnimating()
     }
     
     func show(product: ProductStep, currentIndex: Int){
@@ -75,7 +90,6 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     
     func showImage(data: Data) {
         imageView.image = UIImage(data: data)
-//        indexImageLable.text = isEmptyImage ? "0/0" : "\(currentIndex + 1)/\(product.image.count)"
     }
     
 }

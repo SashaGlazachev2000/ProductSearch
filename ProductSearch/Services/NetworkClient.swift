@@ -4,7 +4,7 @@ protocol NetworkRouting {
     func fetch(urlString: String, queryItems: [URLQueryItem], handler: @escaping (Result<Data, Error>) -> Void)
 }
 
-/// Отвечает за загрузку данных по URL
+
 struct NetworkClient: NetworkRouting {
     
     private enum NetworkError: Error {

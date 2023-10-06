@@ -15,6 +15,8 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
     
     private func pushCodeFactory(code: Int) {
         factoryProduct?.searcProduct(code: code)
+        viewController.startIndicatorImage()
+        
     }
     
     func pushProductToController(product: ProductStep) {
@@ -25,6 +27,7 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
     }
     
     func pushImageToController(data: Data) {
+        viewController.stopIndicatorImage()
         viewController.showImage(data: data)
     }
     
