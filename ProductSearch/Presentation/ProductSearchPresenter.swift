@@ -5,17 +5,19 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
     private var currentImageIndex = 0
     private var amountIndexImage = 0
     private var factoryProduct: ProductFactoryProtocol?
-    private var viewController: ProductSearchPresenterDelegate
+    private weak var viewController: ProductViewControllerProtocol?
     private var product: ProductStep?
+    private var alert: AlertPresenter?
     
-    init(viewController: ProductSearchPresenterDelegate) {
+    init(viewController: ProductViewControllerProtocol) {
         self.viewController = viewController
         factoryProduct = ProductFactory(delegate: self)
+        alert = AlertPresenter(viewController: viewController)
     }
     
     private func pushCodeFactory(code: Int) {
-        factoryProduct?.searcProduct(code: code)
-        viewController.startIndicatorImage()
+        factoryProduct?.searchProduct(code: code)
+        viewController?.startIndicatorImage()
         
     }
     
@@ -23,12 +25,12 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         self.product = product
         currentImageIndex = 0
         amountIndexImage = product.image.count
-        viewController.show(product: product, currentIndex: currentImageIndex)
+        viewController?.show(product: product, currentIndex: currentImageIndex)
     }
     
     func pushImageToController(data: Data) {
-        viewController.stopIndicatorImage()
-        viewController.showImage(data: data)
+        viewController?.stopIndicatorImage()
+        viewController?.showImage(data: data)
     }
     
     func filterTextField(text: String?) {
@@ -43,14 +45,14 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         guard let product = self.product else { return }
         if currentImageIndex == amountIndexImage - 1 { return }
         currentImageIndex += 1
-        viewController.show(product: product, currentIndex: currentImageIndex)
+        viewController?.show(product: product, currentIndex: currentImageIndex)
     }
     
     func backIndexImage() {
         guard let product = self.product else { return }
         if currentImageIndex == 0 { return }
         currentImageIndex -= 1
-        viewController.show(product: product, currentIndex: currentImageIndex)
+        viewController?.show(product: product, currentIndex: currentImageIndex)
     }
     
     func pushTextAtTextField(product: ProductStep) -> String {
@@ -69,6 +71,16 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         result += "Кол-во: \(store.amount)\n"
         result += "Свойства: \(store.quality.isEmpty ? "Нет" : "\(store.quality)")\n"
         return result
+    }
+    
+    func showNetworkError(error: String) {
+        viewController?.stopIndicatorImage()
+        alert?.show(quiz: AlertModel(
+            title: "Ошибка",
+            message: error,
+            titleButton: "Выйти",
+            action: {})
+        )
     }
     
     

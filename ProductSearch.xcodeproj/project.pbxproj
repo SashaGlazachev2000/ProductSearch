@@ -23,7 +23,10 @@
 		B31AB31C2AC5B28500A473E8 /* ProductFactoryPrototcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */; };
 		B31AB31E2AC5BE1E00A473E8 /* ProductSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */; };
 		B31AB3202AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */; };
-		B31AB3222AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */; };
+		B31AB3222AC5C1E600A473E8 /* ProductViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31AB3212AC5C1E600A473E8 /* ProductViewControllerProtocol.swift */; };
+		B33302252AD028A500F29F94 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33302242AD028A500F29F94 /* AlertPresenter.swift */; };
+		B33302272AD029EA00F29F94 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33302262AD029EA00F29F94 /* AlertModel.swift */; };
+		B33302292AD02BDA00F29F94 /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33302282AD02BDA00F29F94 /* AlertPresenterProtocol.swift */; };
 		B35593232ACD641200205FBB /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35593222ACD641200205FBB /* NetworkClient.swift */; };
 		B35593252ACD7E6F00205FBB /* ProductLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35593242ACD7E6F00205FBB /* ProductLoader.swift */; };
 		B35593272ACDADFE00205FBB /* ProductStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35593262ACDADFE00205FBB /* ProductStep.swift */; };
@@ -71,7 +74,10 @@
 		B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactoryPrototcol.swift; sourceTree = "<group>"; };
 		B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchPresenter.swift; sourceTree = "<group>"; };
 		B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewControllerProtocol.swift; sourceTree = "<group>"; };
-		B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchPresenterDelegate.swift; sourceTree = "<group>"; };
+		B31AB3212AC5C1E600A473E8 /* ProductViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewControllerProtocol.swift; sourceTree = "<group>"; };
+		B33302242AD028A500F29F94 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		B33302262AD029EA00F29F94 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		B33302282AD02BDA00F29F94 /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		B35593222ACD641200205FBB /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		B35593242ACD7E6F00205FBB /* ProductLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductLoader.swift; sourceTree = "<group>"; };
 		B35593262ACDADFE00205FBB /* ProductStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStep.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				B31AB2E32AC44C5A00A473E8 /* Main.storyboard */,
 				B31AB2E12AC44C5A00A473E8 /* ProductSearchViewController.swift */,
 				B31AB31D2AC5BE1E00A473E8 /* ProductSearchPresenter.swift */,
+				B33302242AD028A500F29F94 /* AlertPresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -194,10 +201,12 @@
 				B31AB3192AC5B11D00A473E8 /* ProductFactoryDelegat.swift */,
 				B31AB31B2AC5B28500A473E8 /* ProductFactoryPrototcol.swift */,
 				B31AB31F2AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift */,
-				B31AB3212AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift */,
+				B31AB3212AC5C1E600A473E8 /* ProductViewControllerProtocol.swift */,
 				B35593222ACD641200205FBB /* NetworkClient.swift */,
 				B35593242ACD7E6F00205FBB /* ProductLoader.swift */,
 				B3B75E512ACEE58200E383E4 /* ImageLoader.swift */,
+				B33302262AD029EA00F29F94 /* AlertModel.swift */,
+				B33302282AD02BDA00F29F94 /* AlertPresenterProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -345,12 +354,13 @@
 			files = (
 				B31AB3202AC5C15000A473E8 /* ProductSearchViewControllerProtocol.swift in Sources */,
 				B31AB2E22AC44C5A00A473E8 /* ProductSearchViewController.swift in Sources */,
-				B31AB3222AC5C1E600A473E8 /* ProductSearchPresenterDelegate.swift in Sources */,
+				B31AB3222AC5C1E600A473E8 /* ProductViewControllerProtocol.swift in Sources */,
 				B31AB31E2AC5BE1E00A473E8 /* ProductSearchPresenter.swift in Sources */,
 				B31AB2DE2AC44C5A00A473E8 /* AppDelegate.swift in Sources */,
 				B367F93A2ACABB0A008087D3 /* ProductController+Extensions.swift in Sources */,
 				B31AB3152AC59E8600A473E8 /* ProductFactory.swift in Sources */,
 				B31AB2E02AC44C5A00A473E8 /* SceneDelegate.swift in Sources */,
+				B33302272AD029EA00F29F94 /* AlertModel.swift in Sources */,
 				B31AB31A2AC5B11D00A473E8 /* ProductFactoryDelegat.swift in Sources */,
 				B35593272ACDADFE00205FBB /* ProductStep.swift in Sources */,
 				B3B75E502ACEB95C00E383E4 /* Store.swift in Sources */,
@@ -358,8 +368,10 @@
 				B31AB3112AC45D9700A473E8 /* UIColor+Extensions.swift in Sources */,
 				B35593252ACD7E6F00205FBB /* ProductLoader.swift in Sources */,
 				B3B75E522ACEE58200E383E4 /* ImageLoader.swift in Sources */,
+				B33302252AD028A500F29F94 /* AlertPresenter.swift in Sources */,
 				B35593232ACD641200205FBB /* NetworkClient.swift in Sources */,
 				B31AB3182AC59EE800A473E8 /* Product.swift in Sources */,
+				B33302292AD02BDA00F29F94 /* AlertPresenterProtocol.swift in Sources */,
 				B31AB31C2AC5B28500A473E8 /* ProductFactoryPrototcol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

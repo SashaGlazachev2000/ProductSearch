@@ -1,8 +1,9 @@
 import UIKit
 
-class ProductSearchViewController: UIViewController, ProductSearchPresenterDelegate{
+class ProductSearchViewController: UIViewController, ProductViewControllerProtocol{
     
     private var presenter: ProductSearchViewControllerProtocol?
+    private var alert: AlertPresenter?
     
     @IBOutlet private weak var indexImageLable: UILabel!
     @IBOutlet private weak var textField: UITextField!
@@ -20,6 +21,7 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
         super.viewDidLoad()
         
         presenter = ProductSearchPresenter(viewController: self)
+        alert = AlertPresenter(viewController: self)
         
         textFieldSettings()
         buttonImageSettings()
@@ -42,6 +44,7 @@ class ProductSearchViewController: UIViewController, ProductSearchPresenterDeleg
     @IBAction private func nextButtonImageClicked(_ sender: Any) {
         presenter?.nextIndexImage()
     }
+    
     
     private func imageProductSettings() {
         imageView.tintColor = .appBackground
