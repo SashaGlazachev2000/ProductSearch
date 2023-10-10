@@ -88,11 +88,19 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         
         currentImageIndex += 1
         
+        if currentImageIndex == amountIndexImage {
+            viewController?.activeBackButtonImage(true)
+            viewController?.activeNextButtonImage(false)
+        }
+        
         if currentImageIndex > 1 {
             viewController?.activeBackButtonImage(true)
         }
         
         viewController?.showIndexImage(text: textIndexImage)
+        
+        viewController?.startIndicatorImage()
+        factoryProduct?.sercImageNetwork(code: product.code, index: currentImageIndex)
     }
     
     func backIndexImage() {
@@ -108,6 +116,9 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         }
         
         viewController?.showIndexImage(text: textIndexImage)
+        
+        viewController?.startIndicatorImage()
+        factoryProduct?.sercImageNetwork(code: product.code, index: currentImageIndex)
     }
     
     func pushTextAtTextField(product: ProductStep) -> String {

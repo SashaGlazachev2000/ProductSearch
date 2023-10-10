@@ -13,13 +13,13 @@ class ProductFactory: ProductFactoryProtocol {
     }
     
     
-    func sercImageNetwork(code: Int) {
+    func sercImageNetwork(code: Int, index: Int) {
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
             
             let list: [URLQueryItem] = [
                 URLQueryItem(name: "code", value: "\(code)"),
-                URLQueryItem(name: "index", value: "\(1)")]
+                URLQueryItem(name: "index", value: "\(index)")]
             
             loaderImage.loadDataImage(
                 urlString: "https://ceshops.ru:8443/sem/hs/product_img",
@@ -49,7 +49,7 @@ class ProductFactory: ProductFactoryProtocol {
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
 
-            loaderProduct.loadProduct(
+            self.loaderProduct.loadProduct(
                 urlString: "https://ceshops.ru:8443/sem/hs/product_search",
                 queryItems: [URLQueryItem(name: "barcode", value: "\(code)")]) { result in
 
@@ -61,7 +61,7 @@ class ProductFactory: ProductFactoryProtocol {
                             self.delegate.pushProductToController(product: product)
                         }
                         
-                        self.sercImageNetwork(code: code)
+                        self.sercImageNetwork(code: code, index: 1)
                         
                     case .failure(let error):
                         self.showError(error: error)
