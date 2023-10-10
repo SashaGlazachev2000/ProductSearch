@@ -3,9 +3,9 @@ import UIKit
 
 class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactoryDelegat {
     
-    private var currentImageIndex = 0
+    private var currentImageIndex = 1
     private var amountIndexImage = 0
-    private var textIndexImage: String { get { "\(currentImageIndex + 1)/\(amountIndexImage)" } }
+    private var textIndexImage: String { get { "\(currentImageIndex)/\(amountIndexImage)" } }
     private var factoryProduct: ProductFactoryProtocol?
     private weak var viewController: ProductViewControllerProtocol?
     private var product: ProductStep?
@@ -54,7 +54,13 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         let productStep = convertProductStep(product: product)
         
         self.product = productStep
-        currentImageIndex = 0
+        
+        if product.images_count != 0 {
+            currentImageIndex = 1
+        } else {
+            currentImageIndex = 0
+        }
+        
         amountIndexImage = product.images_count
         
         settingsIndexImage()
@@ -81,14 +87,26 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
         if currentImageIndex == amountIndexImage { return }
         
         currentImageIndex += 1
-        viewController?.show(product: product)
+        
+        if currentImageIndex > 1 {
+            viewController?.activeBackButtonImage(true)
+        }
+        
+        viewController?.showIndexImage(text: textIndexImage)
     }
     
     func backIndexImage() {
         guard let product = self.product else { return }
-        if currentImageIndex == 0 { return }
+        
+        if currentImageIndex == 1 { return }
+        
         currentImageIndex -= 1
-        viewController?.show(product: product)
+        
+        if currentImageIndex == 1 {
+            viewController?.activeBackButtonImage(false)
+            viewController?.activeNextButtonImage(true)
+        }
+        
         viewController?.showIndexImage(text: textIndexImage)
     }
     
