@@ -13,7 +13,7 @@ class ProductFactory: ProductFactoryProtocol {
     }
     
     
-    private func sercImageNetwork(code: Int) {
+    func sercImageNetwork(code: Int) {
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
             
@@ -56,22 +56,9 @@ class ProductFactory: ProductFactoryProtocol {
                     switch result {
 
                     case .success(let product):
-                        let imageList = Data()
-
-                        let productStep = ProductStep(
-                            image: imageList,
-                            code: product.code,
-                            barcode: product.barcode,
-                            name: product.name,
-                            amount: product.amount,
-                            price: product.price,
-                            isSeasonal: product.isSeasonal,
-                            quality: product.quality,
-                            stores: product.stores)
-
                         DispatchQueue.main.async { [weak self] in
                             guard let self = self else { return }
-                            self.delegate.pushProductToController(product: productStep)
+                            self.delegate.pushProductToController(product: product)
                         }
                         
                         self.sercImageNetwork(code: code)

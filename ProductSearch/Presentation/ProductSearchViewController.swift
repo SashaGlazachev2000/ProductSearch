@@ -59,10 +59,8 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
     }
     
     private func buttonImageSettings() {
-        backButtonImage.alpha = 0
-        nextButtonImage.alpha = 0
-        backButtonImage.isEnabled = false
-        nextButtonImage.isEnabled = false
+        activeBackButtonImage(false)
+        activeNextButtonImage(false)
         searchButton.clipsToBounds = true
         searchButton.layer.cornerRadius = 10
         backButtonImage.clipsToBounds = true
@@ -85,15 +83,29 @@ class ProductSearchViewController: UIViewController, ProductViewControllerProtoc
         indicatorImage.stopAnimating()
     }
     
-    func show(product: ProductStep, currentIndex: Int){
+    func show(product: ProductStep){
         textViewInfo.text = presenter?.pushTextAtTextField(product: product)
         textViewInfo.clipsToBounds = true
         textViewInfo.backgroundColor = .appGray
         textViewInfo.layer.cornerRadius = 10
     }
     
+    func showIndexImage(text: String) {
+        indexImageLable.text = text
+    }
+    
     func showImage(data: Data) {
         imageView.image = UIImage(data: data)
+    }
+    
+    func activeBackButtonImage(_ isActive: Bool) {
+        backButtonImage.alpha = isActive ? 1 : 0
+        nextButtonImage.isEnabled = isActive
+    }
+    
+    func activeNextButtonImage(_ isActive: Bool) {
+        nextButtonImage.alpha = isActive ? 1 : 0
+        nextButtonImage.isEnabled = isActive
     }
     
 }

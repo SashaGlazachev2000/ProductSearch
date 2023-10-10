@@ -2,8 +2,10 @@ import Foundation
 import UIKit
 
 class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactoryDelegat {
+    
     private var currentImageIndex = 0
     private var amountIndexImage = 0
+    private var textIndexImage: String { get { "\(currentImageIndex + 1)/\(amountIndexImage)" } }
     private var factoryProduct: ProductFactoryProtocol?
     private weak var viewController: ProductViewControllerProtocol?
     private var product: ProductStep?
@@ -18,14 +20,46 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
     private func pushCodeFactory(code: Int) {
         factoryProduct?.searchProduct(code: code)
         viewController?.startIndicatorImage()
-        
     }
     
-    func pushProductToController(product: ProductStep) {
-        self.product = product
+    private func convertProductStep(product: Product) -> ProductStep {
+        let productStep = ProductStep(
+            image: Data(),
+            code: product.code,
+            barcode: product.barcode,
+            name: product.name,
+            amount: product.amount,
+            price: product.price,
+            isSeasonal: product.isSeasonal,
+            quality: product.quality,
+            stores: product.stores)
+        
+        return productStep
+    }
+    
+    private func settingsIndexImage() {
+        let text = textIndexImage
+        viewController?.showIndexImage(text: text)
+        
+        if amountIndexImage > 1 {
+            viewController?.activeBackButtonImage(false)
+            viewController?.activeNextButtonImage(true)
+        } else {
+            viewController?.activeBackButtonImage(false)
+            viewController?.activeNextButtonImage(false)
+        }
+    }
+    
+    func pushProductToController(product: Product) {
+        let productStep = convertProductStep(product: product)
+        
+        self.product = productStep
         currentImageIndex = 0
-        amountIndexImage = product.image.count
-        viewController?.show(product: product, currentIndex: currentImageIndex)
+        amountIndexImage = product.images_count
+        
+        settingsIndexImage()
+        
+        viewController?.show(product: productStep)
     }
     
     func pushImageToController(data: Data) {
@@ -43,22 +77,26 @@ class ProductSearchPresenter: ProductSearchViewControllerProtocol, ProductFactor
     
     func nextIndexImage() {
         guard let product = self.product else { return }
-        if currentImageIndex == amountIndexImage - 1 { return }
+        
+        if currentImageIndex == amountIndexImage { return }
+        
         currentImageIndex += 1
-        viewController?.show(product: product, currentIndex: currentImageIndex)
+        viewController?.show(product: product)
     }
     
     func backIndexImage() {
         guard let product = self.product else { return }
         if currentImageIndex == 0 { return }
         currentImageIndex -= 1
-        viewController?.show(product: product, currentIndex: currentImageIndex)
+        viewController?.show(product: product)
+        viewController?.showIndexImage(text: textIndexImage)
     }
     
     func pushTextAtTextField(product: ProductStep) -> String {
         var result = ""
         result += "ИМЯ: \(product.name)\n"
         result += "КОД: \(product.code)\n"
+        result += "ЦЕНА: \(product.price)\n"
         result += "КОЛ-ВО: \(product.amount)\n"
         result += "Сво-во: \(product.quality)\n"
         result += "СЕЗОН: \(product.isSeasonal ? "СЕЗОН" : "НЕСЕЗОН")\n\n"
